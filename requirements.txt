@@ -8,3 +8,6 @@ SpeechRecognition
 PyAudio
 gTTS
 python-dotenv
+langchain_pinecone
+playsound
+pyttsx3
