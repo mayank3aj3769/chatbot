@@ -4,3 +4,5 @@ llama-7b.ggmlv3.q4_1.bin
 .env
 
 *.mp3
+*.bin
+__pycache__

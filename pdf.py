@@ -4,12 +4,12 @@ from pathlib import Path
 
 from langchain import PromptTemplate
 from langchain.chains import RetrievalQA
-from langchain.embeddings import HuggingFaceEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_pinecone import PineconeVectorStore
 from langchain_community.document_loaders import PyPDFLoader, DirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.prompts import PromptTemplate
-from langchain.llms import CTransformers
+from langchain_community.llms import CTransformers
 
 from pinecone import Pinecone, ServerlessSpec
 

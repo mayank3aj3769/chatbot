@@ -21,7 +21,7 @@ def wait_for_audio_or_key():
 
     def listen_for_audio():
         nonlocal audio_input
-        audio_input = get_audio()
+        audio_input =  get_audio()
 
     def listen_for_key():
         nonlocal key_input
@@ -134,12 +134,11 @@ def app():
     Helpful answer: 
     """
     PROMPT=PromptTemplate(template=prompt_template,input_variables=["context","question"])
-    chain_type_kwargs={"prompt":PROMPT}
-    llm=CTransformers(model="model/llama-7b.ggmlv3.q4_1.bin",
+    chain_type_kwargs={"prompt":PROMPT} # model/llama-7b.ggmlv3.q4_1.bin
+    llm=CTransformers(model="model/llama-7b.ggmlv3.q6_K.bin",
                  model_type="llama",
                  config={'max_new_tokens':256,
                         'temperature':0.8})
-
     
     qa=RetrievalQA.from_chain_type(
         llm=llm,
@@ -161,7 +160,8 @@ def app():
         print("Response : ",result["result"])
         print("".join(["*"]*100))
         skip_thread = skip_audio_output()
-        speak(result["result"])
+        if skip_audio==False:
+            speak(result["result"])
 
         if skip_audio:
             print("Audio output skipped.")

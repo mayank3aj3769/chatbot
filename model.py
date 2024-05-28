@@ -1,4 +1,4 @@
-from langchain.embeddings import HuggingFaceEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_pinecone import PineconeVectorStore
 from langchain.prompts import PromptTemplate
 from langchain.llms import CTransformers
